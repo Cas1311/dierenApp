@@ -65,3 +65,9 @@ Route::post('/submit', [ListingController::class, 'submitReview']);
 
 // Show User Profile
 Route::get('/users/{user}', [UserController::class, 'showProfile']);
+
+// Show Edit User Form
+Route::get('/users/{user}/edit', [UserController::class, 'editProfile']);
+
+// Update Profile
+Route::put('/users/{user}', [UserController::class, 'update'])->middleware('auth');

@@ -76,4 +76,32 @@ class UserController extends Controller
         $user = auth()->user();
         return view('users.profile')->with('user', $user);
     }
+
+    // Edit User profile
+    public function editProfile()
+    {
+        $user = auth()->user();
+        return view('users.edit')->with('user', $user);
+    }
+
+    // Update Profile
+    public function update(Request $request, User $user)
+    {
+
+
+        $formFields = $request->validate([
+            'name' => ['required', 'min:3'],
+            'email' => ['required', 'email'],
+
+        ]);
+
+        // dd($formFields);
+        // if ($request->hasFile('picture')) {
+        //     $formFields['picture'] = $request->file('picture')->store('pictures', 'public');
+        // }
+
+        $user->update($formFields);
+
+        return redirect('/')->with('message', 'Profile updated succesfully');
+    }
 }
