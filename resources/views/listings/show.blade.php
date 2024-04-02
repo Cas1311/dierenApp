@@ -31,8 +31,8 @@
                             <button class="bg-laravel text-white m-6 p-2 rounded-xl hover:opacity-80" type="submit"
                                 class="btn btn-primary">Send Request</button>
                         </form>
-
-                        <a href="mailto:test@test.com"
+                        {{-- @dd($listing->user()) --}}
+                        <a href="mailto:{{ $listing->user->email }}"
                             class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"><i
                                 class="fa-solid fa-envelope"></i>
                             Contact Owner</a>

@@ -24,12 +24,14 @@
                     </td>
                 </tr>
                 @auth
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <a href="/users/{{ $user->id }}/edit"
-                            class="bg-laravel text-white m-6 p-2 rounded-xl hover:opacity-80"><i
-                                class="fa-solid fa-pen-to-square"></i>
-                            Edit Profile</a>
-                    @endauth
+                    @if (auth()->user()->id === $user->id)
+                        <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                            <a href="/users/{{ $user->id }}/edit"
+                                class="bg-laravel text-white m-6 p-2 rounded-xl hover:opacity-80"><i
+                                    class="fa-solid fa-pen-to-square"></i>
+                                Edit Profile</a>
+                    @endif
+                @endauth
                 </td>
             </tbody>
         </table>

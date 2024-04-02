@@ -71,18 +71,18 @@ class UserController extends Controller
     }
 
     // Show User Profile
-    public function showProfile()
+    public function showProfile(User $user)
     {
-        $user = auth()->user();
+
         return view('users.profile')->with('user', $user);
     }
 
     // Edit User profile
-    public function editProfile()
+    public function editProfile(User $user)
     {
-        $user = auth()->user();
-        return view('users.edit')->with('user', $user);
+        return view('users.edit', compact('user'));
     }
+
 
     // Update Profile
     public function update(Request $request, User $user)

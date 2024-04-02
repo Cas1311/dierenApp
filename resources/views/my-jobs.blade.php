@@ -5,23 +5,31 @@
         </header>
         <table class="w-full table-auto rounded-sm">
             <tbody>
-                @foreach ($jobs as $job)
-                    <tr class="border-gray-300">
-                        <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                            <p>Pet from: {{ $job->listing->user->name }}</p>
-                            <p>Pet's Name: {{ $job->listing->petName }}</p>
-                            <p>Starting/Ending Date: {{ $job->listing->startDate }} - {{ $job->listing->endDate }}</p>
-                        </td>
-                        <td>
-                            @if ($job->reviewMessage)
-                                <p class="font-bold">Review:</p>
-                                {{ $job->reviewMessage }}
-                            @else
-                                <p>No Review Yet</p>
-                            @endif
+                @unless ($jobs->isEmpty())
+                    @foreach ($jobs as $job)
+                        <tr class="border-gray-300">
+                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                                <p>Pet from: {{ $job->listing->user->name }}</p>
+                                <p>Pet's Name: {{ $job->listing->petName }}</p>
+                                <p>Starting/Ending Date: {{ $job->listing->startDate }} - {{ $job->listing->endDate }}</p>
+                            </td>
+                            <td>
+                                @if ($job->reviewMessage)
+                                    <p class="font-bold">Review:</p>
+                                    {{ $job->reviewMessage }}
+                                @else
+                                    <p>No Review Yet</p>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr class="border-grey-300">
+                        <td class="px-4 py-7 border-t border-b-grey-300 text-lg">
+                            <p class="text-center">No Jobs Found</p>
                         </td>
                     </tr>
-                @endforeach
+                @endunless
             </tbody>
         </table>
     </x-card>

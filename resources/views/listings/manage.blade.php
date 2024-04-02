@@ -12,15 +12,12 @@
                         {{-- @dd($listing->jobs->reviewMessage); --}}
                         <tr class="border-gray-300">
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                                <p class="font-bold">Pet Name:</p>
                                 <a href="/listings/{{ $listing->id }}">
                                     {{ $listing->petName }}
                                 </a>
                             </td>
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="/listings/{{ $listing->id }}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
-                                        class="fa-solid fa-pen-to-square"></i>
-                                    Edit</a>
-                            </td>
+
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                                 @if ($listing->requests()->exists())
                                     {{-- Get the first request related to the listing --}}
@@ -30,19 +27,29 @@
                                         {{-- Get the user who made the request --}}
                                         @php $user = $request->user; @endphp
                                         {{-- Display the message with the user ID --}}
-                                        Pet is now taken care of by {{ $user->name }}
-                                        {{-- @dd($jobs) --}}
-                                        <form class="flex flex-col" method="POST" action="/submit">
-                                            @csrf
-                                            <input type="hidden" name="job_id" value={{ $listing->jobs->id }}>
-                                            <textarea name="reviewMessage" placeholder="Leave a review"></textarea>
-                                            <button type="submit" class="text-green-500"><i class="fa-solid fa-check"></i>
-                                                Submit Review</button>
+                                        Pet is now taken care of by <a
+                                            class="bg-laravel text-white rounded py-1 px-2 hover:bg-black"
+                                            href="/users/{{ $request->user->id }}">{{ $request->user->name }}</a>
 
-                                        </form>
+                                        {{-- Check if reviewMessage exists --}}
+                                        @if ($listing->jobs->reviewMessage)
+                                            <p class="font-bold">Review:</p>
+                                            {{ $listing->jobs->reviewMessage }}
+                                        @else
+                                            {{-- Show the review form --}}
+                                            <form class="flex flex-col mt-6" method="POST" action="/submit">
+                                                @csrf
+                                                <input type="hidden" name="job_id" value={{ $listing->jobs->id }}>
+                                                <textarea name="reviewMessage" placeholder="Leave a review"></textarea>
+                                                <button type="submit" class="text-green-500 mt-6"><i
+                                                        class="fa-solid fa-check"></i>
+                                                    Submit Review</button>
+                                            </form>
+                                        @endif
                                     @else
                                         {{-- Display the name of the user who offered --}}
-                                        Petsitting Offer from {{ $request->user->name }}
+                                        Petsitting Offer from <a
+                                            href="/users/{{ $request->user->id }}">{{ $request->user->name }}</a>
                                         {{-- Accept request form --}}
                                         <form method="POST" action="{{ route('listings.accept-request', $listing) }}">
                                             @csrf
@@ -55,16 +62,15 @@
                                 @endif
                             </td>
 
-
-
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                                <a href="/listings/{{ $listing->id }}/edit" class="text-blue-400 "><i
+                                        class="fa-solid fa-pen-to-square"></i>
+                                    Edit</a>
                                 <form method="POST" action="{{ $listing->id }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="text-red-500"><i class="fa-solid fa-trash"></i>Delete</button>
-
                                 </form>
-
                             </td>
                         </tr>
                     @endforeach
