@@ -62,3 +62,6 @@ Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 // Submit a Review
 Route::post('/submit', [ListingController::class, 'submitReview']);
+
+// Show User Profile
+Route::get('/users/{user}', [UserController::class, 'showProfile']);

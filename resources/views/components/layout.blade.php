@@ -42,13 +42,15 @@
                     class="logo" /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
                 @auth
+                    @php
+                        $user = auth()->user();
+                    @endphp
 
-
-                    <li>
+                    <a href="/users/{{ $user->id }}">
                         <span class="font-bold uppercase">
-                            Welcome {{ auth()->user()->name }}
+                            Welcome {{ $user->name }}
                         </span>
-                    </li>
+                    </a>
                     <li>
                         <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
                             Manage Listings</a>

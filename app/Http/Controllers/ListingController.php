@@ -7,15 +7,17 @@ use App\Models\User;
 use App\Models\Review;
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
     // Show all listings
     public function index()
     {
-
+        $user = Auth::user();
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6)
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6),
+            'user' => $user
         ]);
     }
 
