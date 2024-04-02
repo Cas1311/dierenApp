@@ -94,14 +94,13 @@ class UserController extends Controller
             'email' => ['required', 'email'],
 
         ]);
+        if ($request->hasFile('homeImage')) {
 
-        // dd($formFields);
-        // if ($request->hasFile('picture')) {
-        //     $formFields['picture'] = $request->file('picture')->store('pictures', 'public');
-        // }
+            $formFields['homeImage'] = $request->file('homeImage')->store('homeImages', 'public');
+        }
 
         $user->update($formFields);
 
-        return redirect('/')->with('message', 'Profile updated succesfully');
+        return redirect('/users/{user}')->with('message', 'Profile updated succesfully');
     }
 }
