@@ -101,6 +101,6 @@ class UserController extends Controller
 
         $user->update($formFields);
 
-        return redirect('/users/{user}')->with('message', 'Profile updated succesfully');
+        return redirect("/users/{$user->id}")->with('message', 'Profile updated succesfully');
     }
 }
