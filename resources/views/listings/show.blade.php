@@ -19,7 +19,8 @@
                     <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}
                 </div>
                 <div class="text-lg mb-6">
-                    <i class="fa-solid fa-user"></i>Owner: {{ $listing->user->name }}
+                    <i class="fa-solid fa-user"></i>Owner: <a
+                        href="/users/{{ $listing->user->id }}">{{ $listing->user->name }}</a>
                 </div>
                 <div class="border border-gray-200 w-full mb-6"></div>
                 <div>

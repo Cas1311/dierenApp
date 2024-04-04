@@ -9,7 +9,8 @@
                     @foreach ($jobs as $job)
                         <tr class="border-gray-300">
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <p>Pet from: {{ $job->listing->user->name }}</p>
+                                <p>Pet from: <a
+                                        href="/users/{{ $job->listing->user->id }}">{{ $job->listing->user->name }}</a></p>
                                 <p>Pet's Name: {{ $job->listing->petName }}</p>
                                 <p>Starting/Ending Date: {{ $job->listing->startDate }} - {{ $job->listing->endDate }}</p>
                             </td>
