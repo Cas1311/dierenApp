@@ -16,7 +16,7 @@ class ListingController extends Controller
     {
         $user = Auth::user();
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->filter(request(['petBreed', 'search'], []))->paginate(6),
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6),
             'user' => $user
         ]);
     }

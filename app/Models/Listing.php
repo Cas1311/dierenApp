@@ -23,7 +23,7 @@ class Listing extends Model
         if ($filters['search'] ?? false) {
             $query->where('tags', 'like', '%' . $filters['search'] . '%')
                 ->orWhere('description', 'like', '%' . $filters['search'] . '%')
-                ->orWhere('tags', 'like', '%' . $filters['search'] . '%');
+                ->orWhere('petBreed', 'like', '%' . $filters['search'] . '%');
         }
     }
 
