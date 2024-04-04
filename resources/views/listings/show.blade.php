@@ -18,6 +18,9 @@
                 <div class="text-lg my-4">
                     <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}
                 </div>
+                <div class="text-lg mb-6">
+                    <i class="fa-solid fa-user"></i>Owner: {{ $listing->user->name }}
+                </div>
                 <div class="border border-gray-200 w-full mb-6"></div>
                 <div>
                     <h3 class="text-3xl font-bold mb-4">
@@ -25,18 +28,23 @@
                     </h3>
                     <div class="text-lg space-y-6">
                         <p>{{ $listing->description }}</p>
+                        {{-- Don't show if it's your own pet --}}
+                        @auth
 
-                        <form method="POST" action="{{ route('listings.requests.store', $listing) }}">
-                            @csrf
-                            <button class="bg-laravel text-white m-6 p-2 rounded-xl hover:opacity-80" type="submit"
-                                class="btn btn-primary">Send Request</button>
-                        </form>
-                        {{-- @dd($listing->user()) --}}
-                        <a href="mailto:{{ $listing->user->email }}"
-                            class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"><i
-                                class="fa-solid fa-envelope"></i>
-                            Contact Owner</a>
-
+                            @if (auth()->user() != $listing->user)
+                                <form method="POST" action="{{ route('listings.requests.store', $listing) }}">
+                                    @csrf
+                                    <button class="bg-laravel text-white pl-6 pr-6 pt-2 pb-2 rounded-xl hover:opacity-80"
+                                        type="submit" class="btn btn-primary"><i class="fa-solid fa-dog mr-4"></i>Offer to
+                                        take
+                                        care of pet</button>
+                                </form>
+                                <a href="mailto:{{ $listing->user->email }}"
+                                    class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"><i
+                                        class="fa-solid fa-envelope"></i>
+                                    Contact Owner</a>
+                            @endif
+                        @endauth
                     </div>
                 </div>
             </div>

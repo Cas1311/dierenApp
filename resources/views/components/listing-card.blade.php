@@ -14,6 +14,9 @@
             <div class="text-lg mt-4">
                 <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}
             </div>
+            <div class="text-lg">
+                <i class="fa-solid fa-user"></i>Owner: {{ $listing->user->name }}
+            </div>
         </div>
     </div>
 </x-card>
