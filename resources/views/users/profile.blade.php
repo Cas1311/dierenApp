@@ -17,7 +17,7 @@
                 </tr>
                 <tr>
                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <p>Where i keep my pets:</p>
+                        <p>Where I keep my pets:</p>
                         <img class="w-48 mr-6 mb-6"
                             src="{{ $user->homeImage ? asset('storage/' . $user->homeImage) : asset('/images/no-image.png') }}"
                             alt="" />

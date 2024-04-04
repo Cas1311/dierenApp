@@ -33,7 +33,8 @@
                 <label for="homeImage" class="inline-block text-lg mb-2">
                     Image of where you keep your pets
                 </label>
-                <input type="file" class="border border-gray-200 rounded p-2 w-full" name="homeImage" />
+                <input type="file" accept="image/*" class="border border-gray-200 rounded p-2 w-full"
+                    name="homeImage" />
             </div>
 
             @error('homeImage')
