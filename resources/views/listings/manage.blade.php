@@ -9,7 +9,6 @@
             <tbody>
                 @unless ($listings->isEmpty())
                     @foreach ($listings as $listing)
-                        {{-- @dd($listing->jobs->reviewMessage); --}}
                         <tr class="border-gray-300">
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                                 <p class="font-bold">Pet Name:</p>
@@ -55,6 +54,12 @@
                                             @csrf
                                             <button type="submit" class="text-green-500"><i class="fa-solid fa-check"></i>
                                                 Accept Offer</button>
+                                        </form>
+                                        {{-- Form to deny request --}}
+                                        <form method="POST" action="{{ route('listings.deny-request', $listing) }}">
+                                            @csrf
+                                            <button type="submit" class="text-red-500"><i class="fa-solid fa-times"></i>
+                                                Deny Request</button>
                                         </form>
                                     @endif
                                 @else

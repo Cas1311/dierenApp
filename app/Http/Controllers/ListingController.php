@@ -159,14 +159,24 @@ class ListingController extends Controller
         }
     }
 
+    public function denyRequest(Request $request, Listing $listing)
+    {
+        $request = $listing->requests()->first();
+
+        if ($request) {
+            $request->delete();
+
+            return redirect()->back()->with('message', 'Request denied successfully.');
+        }
+
+        return redirect()->back()->with('error', 'Request not found.');
+    }
+
     public function myJobs()
     {
         $user = auth()->user();
         // Retrieve the jobs for the authenticated user
         $jobs = Job::where('user_id', auth()->id())->get();
-
-        // Pass the $jobs variable to the view
-
         return view('my-jobs', compact('jobs'));
     }
 

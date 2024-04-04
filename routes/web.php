@@ -54,6 +54,9 @@ Route::post('/listings/{listing}/requests', [ListingRequestController::class, 's
 // Accept Request
 Route::post('/listings/{listing}/accept-request', [ListingController::class, 'acceptRequest'])->name('listings.accept-request');
 
+// Deny Request
+Route::post('/listings/{listing}/deny-request', [ListingController::class, 'denyRequest'])->name('listings.deny-request');
+
 // View joblist
 Route::get('/my-jobs', [ListingController::class, 'myJobs'])->name('my-jobs');
 
