@@ -12,13 +12,24 @@ use Illuminate\Support\Facades\Auth;
 class ListingController extends Controller
 {
     // Show all listings
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-        return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6),
-            'user' => $user
-        ]);
+        $listings = Listing::latest();
+
+        if ($request->has('tag')) {
+            $listings->whereHas('tags', function ($query) use ($request) {
+                $query->where('name', $request->tag);
+            });
+        }
+
+        if ($request->has('search')) {
+            $listings->where('petBreed', 'like', '%' . $request->search . '%');
+        }
+
+        $listings = $listings->paginate(6);
+
+        return view('listings.index', compact('listings', 'user'));
     }
 
     // Show single listing
