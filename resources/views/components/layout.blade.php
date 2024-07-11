@@ -37,30 +37,30 @@
                         $user = auth()->user();
                     @endphp
 
+                    <section class="layout-container">
+                        <span class="font-bold uppercase">
+                            Welcome {{ $user->name }}
+                        </span>
 
-                    <span class="font-bold uppercase">
-                        Welcome {{ $user->name }}
-                    </span>
-
-                    <a href="/users/{{ $user->id }}">
-                        <span class="uppercase">
+                        <a href="/users/{{ $user->id }}" class="text-link-hover">
                             <i class="fa-solid fa-user"></i>
                             View profile
-                        </span>
-                    </a>
-                    <li>
-                        <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i>
-                            Manage Listings</a>
-                    </li>
-                    <li>
-                        <a href="/my-jobs"><i class="fa-solid fa-dog"></i> My Jobs</a>
-                    </li>
-                    <li>
-                        <form method="POST" action="/logout" class="inline">
-                            @csrf
-                            <button type="submit"><i class="fa-solid fa-door-closed"></i>Logout</button>
-                        </form>
-                    </li>
+                        </a>
+                        <li>
+                            <a href="/listings/manage" class="text-link-hover"><i class="fa-solid fa-gear"></i>
+                                Manage Listings</a>
+                        </li>
+                        <li>
+                            <a href="/my-jobs" class="text-link-hover"><i class="fa-solid fa-dog"></i> My Jobs</a>
+                        </li>
+                        <li>
+                            <form method="POST" action="/logout" class="inline">
+                                @csrf
+                                <button type="submit" class="text-link-hover"><i
+                                        class="fa-solid fa-door-closed"></i>Logout</button>
+                            </form>
+                        </li>
+                    </section>
                 @else
                     <li>
                         <a href="/register" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i>
@@ -78,8 +78,11 @@
             {{ $slot }}
         </main>
     </body>
+
     <footer>
-        <a class="button" href="/listings/create">Post Job</a>
+        @auth
+            <a class="button" href="/listings/create">Post Job</a>
+        @endauth
     </footer>
 
     <x-flash-message />

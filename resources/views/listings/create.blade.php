@@ -10,118 +10,114 @@
         <form method="POST" action="/listings" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-6">
-                <label for="petBreed" class="inline-block text-lg mb-2">Pet Breed</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="petBreed"
-                    value="{{ old('petBreed') }}" placeholder="Example: Labradoodle" />
+            <div class="listing-section">
+                <label for="petBreed" class="question-header">Pet Breed</label>
+                <input type="text" class="question-box" name="petBreed" value="{{ old('petBreed') }}"
+                    placeholder="Example: Labradoodle" />
             </div>
 
             @error('petBreed')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <label for="hourRate" class="inline-block text-lg mb-2">Hour Rate</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="hourRate"
-                    value="{{ old('hourRate') }}" placeholder="Example: $15" />
+            <div class="listing-section">
+                <label for="hourRate" class="question-header">Hour Rate</label>
+                <input type="text" class="question-box" name="hourRate" value="{{ old('hourRate') }}"
+                    placeholder="Example: $15" />
             </div>
 
             @error('hourRate')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <label for="location" class="inline-block text-lg mb-2">location</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location"
-                    value="{{ old('location') }}" placeholder="Example: P Sherman 42 Wallaby Way, Sydney" />
+            <div class="listing-section">
+                <label for="location" class="question-header">location</label>
+                <input type="text" class="question-box" name="location" value="{{ old('location') }}"
+                    placeholder="Example: P Sherman 42 Wallaby Way, Sydney" />
             </div>
 
             @error('location')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <label for="startDate" class="inline-block text-lg mb-2">
+            <div class="listing-section">
+                <label for="startDate" class="question-header">
                     Starting Date
                 </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="startDate"
-                    value="{{ old('startDate') }}" />
+                <input type="text" class="question-box" name="startDate" value="{{ old('startDate') }}" />
             </div>
 
             @error('startDate')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <label for="endDate" class="inline-block text-lg mb-2">
+            <div class="listing-section">
+                <label for="endDate" class="question-header">
                     Ending Date
                 </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="endDate"
-                    value="{{ old('endDate') }}" />
+                <input type="text" class="question-box" name="endDate" value="{{ old('endDate') }}" />
             </div>
 
             @error('endDate')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <label for="email" class="inline-block text-lg mb-2">Contact Email</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="email"
-                    value="{{ old('email') }}" />
+            <div class="listing-section">
+                <label for="email" class="question-header">Contact Email</label>
+                <input type="text" class="question-box" name="email" value="{{ old('email') }}" />
             </div>
 
             @error('email')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <label for="petName" class="inline-block text-lg mb-2">Pet Name</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="petName"
-                    value="{{ old('petName') }}" />
+            <div class="listing-section">
+                <label for="petName" class="question-header">Pet Name</label>
+                <input type="text" class="question-box" name="petName" value="{{ old('petName') }}" />
             </div>
 
             @error('petName')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <label for="tags" class="inline-block text-lg mb-2">
+            <div class="listing-section">
+                <label for="tags" class="question-header">
                     Tags (Comma Separated)
                 </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
-                    value="{{ old('tags') }}" placeholder="Example: Dog, Cat, Playful, etc" />
+                <input type="text" class="question-box" name="tags" value="{{ old('tags') }}"
+                    placeholder="Example: Dog, Cat, Playful, etc" />
             </div>
 
             @error('tags')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <label for="picture" class="inline-block text-lg mb-2">
+            <div class="listing-section">
+                <label for="picture" class="question-header">
                     Picture
                 </label>
-                <input type="file" accept="image/*" class="border border-gray-200 rounded p-2 w-full"
-                    name="picture" />
+                <input type="file" accept="image/*" class="question-box" name="picture"
+                    value="{{ old('picture') }}" />
             </div>
 
             @error('picture')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <label for="description" class="inline-block text-lg mb-2">
+            <div class="listing-section">
+                <label for="description" class="question-header">
                     Description/Important Needs
                 </label>
-                <textarea class="border border-gray-200 rounded p-2 w-full" name="description" value="{{ old('description') }}"
-                    rows="10" placeholder="Include neccesary description, important needs, etc"></textarea>
+                <textarea class="question-box" name="description" value="{{ old('description') }}" rows="10"
+                    placeholder="Include neccesary description, important needs, etc"></textarea>
             </div>
 
             @error('description')
                 <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
             @enderror
 
-            <div class="mb-6">
-                <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
+            <div class="listing-section-bottom">
+                <button class="button">
                     Post Listing
                 </button>
 

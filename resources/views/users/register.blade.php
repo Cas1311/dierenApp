@@ -5,7 +5,7 @@
                 <h2 class="text-2xl font-bold uppercase mb-1">
                     Register
                 </h2>
-                <p class="mb-4">Create an account to post gigs</p>
+                <p class="mb-4">Create an account to take care of a pet</p>
             </header>
 
             <form method="POST" action="/users">
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="mb-6">
-                    <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
+                    <button type="submit" class="button">
                         Sign Up
                     </button>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="mt-8">
                     <p>
                         Already have an account?
-                        <a href="/login" class="text-laravel">Login</a>
+                        <a href="/login" class="text-link">Login</a>
                     </p>
                 </div>
             </form>

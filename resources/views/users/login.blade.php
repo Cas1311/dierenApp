@@ -33,7 +33,7 @@
 
 
                 <div class="mb-6">
-                    <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
+                    <button type="submit" class="button">
                         Sign In
                     </button>
                 </div>
@@ -41,7 +41,7 @@
                 <div class="mt-8">
                     <p>
                         Don't have an account?
-                        <a href="/register" class="text-laravel">Register</a>
+                        <a href="/register" class="text-link">Register</a>
                     </p>
                 </div>
             </form>

@@ -1,5 +1,6 @@
 <x-layout>
     <link rel="stylesheet" href="{{ asset('css/show.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     @include('partials._search')
     <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
     </a>
@@ -19,7 +20,7 @@
                     <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}
                 </div>
                 <div>
-                    <i class="fa-solid fa-user"></i> Owner: <a
+                    <i class="fa-solid fa-user"></i> Owner: <a class="text-link"
                         href="/users/{{ $listing->user->id }}">{{ $listing->user->name }}</a>
                 </div>
 
@@ -30,13 +31,18 @@
                         {{-- Don't show if it's your own pet --}}
                         @auth
                             @if (auth()->user() != $listing->user)
-                                <form method="POST" action="{{ route('listings.requests.store', $listing) }}">
-                                    @csrf
-                                    <button type="submit"><i class="fa-solid fa-dog mr-1"></i>Offer to take care of
-                                        pet</button>
-                                </form>
-                                <a href="mailto:{{ $listing->user->email }}"><i class="fa-solid fa-envelope mr-1"></i>
-                                    Contact Owner</a>
+                                <section class="listing-contact-button-container">
+                                    <form method="POST" action="{{ route('listings.requests.store', $listing) }}">
+                                        @csrf
+                                        <button class="button" type="submit"><i class="fa-solid fa-dog mr-1"></i>Offer to
+                                            take
+                                            care of
+                                            pet</button>
+                                    </form>
+                                    <a class="button" href="mailto:{{ $listing->user->email }}"><i
+                                            class="fa-solid fa-envelope mr-1"></i>
+                                        Contact Owner</a>
+                                </section>
                             @endif
                         @endauth
                     </div>
