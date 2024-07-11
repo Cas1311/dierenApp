@@ -1,5 +1,5 @@
 <x-layout>
-
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     @auth
         <!-- User is authenticated, exclude the hero section -->
         @include('partials._search')
@@ -10,7 +10,7 @@
 
     @endauth
 
-    <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
+    <div class="list-items">
 
         @if (count($listings) == 0)
             <p>No listings</p>
@@ -21,7 +21,7 @@
         @endforeach
     </div>
 
-    <div class="mt-6 p-4">
+    <div>
         {{ $listings->links() }}
     </div>
 </x-layout>
