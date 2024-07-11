@@ -30,6 +30,7 @@
     <body>
         <nav class="layout">
             <a href="/"><img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo" /></a>
+            <h1 class="header-title">PetSitters</h1>
             <ul class="link-container">
                 @auth
                     @php
@@ -77,9 +78,9 @@
             {{ $slot }}
         </main>
     </body>
-    {{-- <footer>
+    <footer>
         <a class="button" href="/listings/create">Post Job</a>
-    </footer> --}}
+    </footer>
 
     <x-flash-message />
 </body>

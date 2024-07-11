@@ -1,15 +1,6 @@
 <x-layout>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    @auth
-        <!-- User is authenticated, exclude the hero section -->
-        @include('partials._search')
-    @else
-        <!-- User is not authenticated, include the hero section -->
-        @include('partials._hero')
-        @include('partials._search')
-
-    @endauth
-
+    @include('partials._search')
     <div class="list-items">
 
         @if (count($listings) == 0)

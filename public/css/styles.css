@@ -1,14 +1,15 @@
 :root {
-    --primary-color: #002d80;
-    --secondary-color: #08064a;
+    --primary-color: #CBF1F5;
+    --secondary-color: #A6E3E9;
     --tertiary-color: #3490dc;
-    --text-color: #ffffff;
-    /* background-color: var(--primary-color); */
+    --text-color: #001a1c;
+    background-color: var(--primary-color);
 }
 
 /* Listing */
 .listing-card {
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     display: flex;
     flex-direction: row;
     padding: 10px;
@@ -22,6 +23,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 10vh;
 }
 
 .listing-details {
@@ -47,7 +49,7 @@
 }
 
 .tag {
-    background-color: var(--primary-color);
+    background-color: var(--tertiary-color);
     color: var(--text-color);
     padding: 5px 15px;
     border-radius: 15px;
@@ -62,11 +64,17 @@
 /* Layout */
 
 .layout {
-    background-color: var(--tertiary-color);
+    /* background-color: var(--tertiary-color); */
+    border-bottom: 2px solid var(--secondary-color);
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
+    /* height: 10vh; */
+}
+
+.header-title {
+    font-size: 3rem;
 }
 
 .logo {
