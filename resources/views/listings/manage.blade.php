@@ -1,23 +1,23 @@
 <x-layout>
-    <x-card class="p-10">
-        <header>
-            <h1 class="text-3xl text-center font-bold my-6 uppercase">
+    <x-card>
+        <header class="text-center">
+            <h1 class="header">
                 Manage Listings
             </h1>
         </header>
-        <table class="w-full table-auto rounded-sm">
+        <table class="table">
             <tbody>
                 @unless ($listings->isEmpty())
                     @foreach ($listings as $listing)
-                        <tr class="border-gray-300">
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                        <tr class="table-row">
+                            <td>
                                 <p class="font-bold">Pet Name:</p>
                                 <a href="/listings/{{ $listing->id }}">
                                     {{ $listing->petName }}
                                 </a>
                             </td>
 
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                            <td>
                                 @if ($listing->requests()->exists())
                                     {{-- Get the first request related to the listing --}}
                                     @php $request = $listing->requests()->first(); @endphp
@@ -35,18 +35,18 @@
                                             {{ $listing->jobs->reviewMessage }}
                                         @else
                                             {{-- Show the review form --}}
-                                            <form class="flex flex-col mt-6" method="POST" action="/submit">
+                                            <form class="review" method="POST" action="/submit">
                                                 @csrf
                                                 <input type="hidden" name="job_id" value={{ $listing->jobs->id }}>
-                                                <textarea name="reviewMessage" placeholder="Leave a review"></textarea>
-                                                <button type="submit" class="text-green-500 mt-6"><i
+                                                <textarea name="reviewMessage" placeholder="Leave a review..."></textarea>
+                                                <button type="submit" class="text-green-500"><i
                                                         class="fa-solid fa-check"></i>
                                                     Submit Review</button>
                                             </form>
                                         @endif
                                     @else
                                         {{-- Display the name of the user who offered --}}
-                                        Petsitting Offer from <a
+                                        Petsitting Offer from <a class="text-link"
                                             href="/users/{{ $request->user->id }}">{{ $request->user->name }}</a>
                                         {{-- Accept request form --}}
                                         <form method="POST" action="{{ route('listings.accept-request', $listing) }}">
@@ -66,7 +66,8 @@
                                 @endif
                             </td>
 
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                            <td class="table-buttons">
+                                <p class="question-header">Edit your listing</p>
                                 <a href="/listings/{{ $listing->id }}/edit" class="text-blue-400 "><i
                                         class="fa-solid fa-pen-to-square"></i>
                                     Edit</a>
@@ -79,8 +80,8 @@
                         </tr>
                     @endforeach
                 @else
-                    <tr class="border-grey-300">
-                        <td class="px-4 py-7 border-t border-b-grey-300 text-lg">
+                    <tr class="table-row">
+                        <td class="table-buttons">
                             <p class="text-center">No Listings Found</p>
                         </td>
                     </tr>

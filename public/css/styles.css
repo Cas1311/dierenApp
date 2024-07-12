@@ -276,11 +276,22 @@ footer {
     display: flex;
     width: 80%;
     margin: 20px 10vw;
+
 }
 
 .table-row {
+    /* display: flex; */
     padding: 200px;
     border-bottom: 2px solid var(--secondary-color);
+
+}
+
+/* Manage */
+.review {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 20px 5px 0;
+
 }
 
 /* Admin */
