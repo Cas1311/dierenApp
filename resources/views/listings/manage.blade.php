@@ -26,8 +26,7 @@
                                         {{-- Get the user who made the request --}}
                                         @php $user = $request->user; @endphp
                                         {{-- Display the message with the user ID --}}
-                                        Pet is now taken care of by <a
-                                            class="bg-laravel text-white rounded py-1 px-2 hover:bg-black"
+                                        Pet is now taken care of by <a class="text-link"
                                             href="/users/{{ $request->user->id }}">{{ $request->user->name }}</a>
 
                                         {{-- Check if reviewMessage exists --}}

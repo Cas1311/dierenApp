@@ -1,39 +1,29 @@
 <x-layout>
-    <x-card class="p-10">
-        <header>
-            <h1 class="text-3xl text-center font-bold my-6 uppercase">{{ $user->name }}'s Profile</h1>
-        </header>
-        <table class="w-full table-auto rounded-sm">
-            <tbody>
-                <tr class="border-gray-300">
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <p>Name: {{ $user->name }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <p>Email: {{ $user->email }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                        <p>Where I keep my pets:</p>
-                        <img class="w-48 mr-6 mb-6"
-                            src="{{ $user->homeImage ? asset('storage/' . $user->homeImage) : asset('/images/no-image.png') }}"
-                            alt="" />
-                    </td>
-                </tr>
+    <x-card>
+        <section class="profile-content">
+            <header class="profile-header">
+                <h1>{{ $user->name }}'s Profile</h1>
                 @auth
                     @if (auth()->user()->id === $user->id)
-                        <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                            <a href="/users/{{ $user->id }}/edit"
-                                class="bg-laravel text-white m-6 p-2 rounded-xl hover:opacity-80"><i
-                                    class="fa-solid fa-pen-to-square"></i>
-                                Edit Profile</a>
+                        <a class="text-link" href="/users/{{ $user->id }}/edit">
+                            <i class="fa-solid fa-pen-to-square"></i> Edit Profile
+                        </a>
                     @endif
                 @endauth
-                </td>
-            </tbody>
-        </table>
+            </header>
+
+
+            <section class="profile-section">
+                <section>
+                    <p class="profile-info"><strong>Name:</strong> {{ $user->name }}</p>
+                    <p class="profile-info"><strong>Email:</strong> {{ $user->email }}</p>
+                </section>
+                <section>
+                    <p class="profile-info"><strong>Where I keep my pets:</strong></p>
+                    <img class="profile-image"
+                        src="{{ $user->homeImage ? asset('storage/' . $user->homeImage) : asset('/images/no-image.png') }}"
+                        alt="User's home image" />
+                </section>
+            </section>
     </x-card>
 </x-layout>

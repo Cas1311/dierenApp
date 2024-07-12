@@ -207,3 +207,47 @@ footer {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+/* Profile */
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 20px;
+}
+
+.profile-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.profile-header h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.profile-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    text-align: left;
+    align-items: start;
+}
+
+.profile-info {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.profile-image {
+    max-width: 25vw;
+    width: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
