@@ -15,7 +15,7 @@
                     <label for="email" class="question-header">Email</label>
                     <input type="email" class="question-box" name="email" value="{{ old('email') }}" />
                     @error('email')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        <p class="error-text">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -25,7 +25,7 @@
                     </label>
                     <input type="password" class="question-box" name="password" value="{{ old('password') }}" />
                     @error('password')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        <p class="error-text">{{ $message }}</p>
                     @enderror
                 </div>
 

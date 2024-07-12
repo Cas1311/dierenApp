@@ -54,16 +54,18 @@
             @if (auth()->user()->isAdmin)
                 {{-- Only available for admins --}}
                 <x-card>
-                    <a href="/listings/{{ $listing->id }}/edit">
-                        <i class="fa-solid fa-pencil"></i>
-                        Edit</a>
+                    <section class="admin-buttons">
+                        <a class="button" href="/listings/{{ $listing->id }}/edit">
+                            <i class="fa-solid fa-pencil"></i>
+                            Edit</a>
 
-                    <form method="POST" action="{{ $listing->id }}">
-                        @csrf
-                        @method('DELETE')
-                        <button><i class="fa-solid fa-trash"></i>Delete</button>
+                        <form method="POST" action="{{ $listing->id }}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="button-red"><i class="fa-solid fa-trash"></i>Delete</button>
 
-                    </form>
+                        </form>
+                    </section>
                 </x-card>
             @endif
         @endauth

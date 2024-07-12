@@ -20,7 +20,7 @@
     flex-direction: row;
     padding: 10px;
     align-items: center;
-    width: 100%;
+    width: 90%;
     margin: 20px;
 
 }
@@ -174,6 +174,16 @@ footer {
     transition: background-color 0.3s ease;
 }
 
+.button-red {
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 .button:hover {
     background-color: #2779bd;
 }
@@ -271,4 +281,12 @@ footer {
 .table-row {
     padding: 200px;
     border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Admin */
+.admin-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 10vh;
 }

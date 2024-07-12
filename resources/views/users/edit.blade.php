@@ -15,7 +15,7 @@
             </div>
 
             @error('name')
-                <p class="error-text" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text">{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -24,7 +24,7 @@
             </div>
 
             @error('email')
-                <p class="error-text" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text">{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -35,7 +35,7 @@
             </div>
 
             @error('homeImage')
-                <p class="error-text" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text">{{ $message }}</p>
             @enderror
 
             <div class="listing-section">

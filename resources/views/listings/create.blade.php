@@ -1,10 +1,10 @@
 <x-layout>
     <x-card class="p-10 max-w-lg mx-auto mt-24">
         <header class="text-center">
-            <h2 class="text-2xl font-bold uppercase mb-1">
+            <h2 class="header">
                 List your pet
             </h2>
-            <p class="mb-4">Make a listing for your pet</p>
+            <p>Make a listing for your pet</p>
         </header>
 
         <form method="POST" action="/listings" enctype="multipart/form-data">
@@ -17,7 +17,7 @@
             </div>
 
             @error('petBreed')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -27,7 +27,7 @@
             </div>
 
             @error('hourRate')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -37,7 +37,7 @@
             </div>
 
             @error('location')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -48,7 +48,7 @@
             </div>
 
             @error('startDate')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -59,7 +59,7 @@
             </div>
 
             @error('endDate')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -68,7 +68,7 @@
             </div>
 
             @error('email')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -77,7 +77,7 @@
             </div>
 
             @error('petName')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -89,7 +89,7 @@
             </div>
 
             @error('tags')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -101,7 +101,7 @@
             </div>
 
             @error('picture')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section">
@@ -113,7 +113,7 @@
             </div>
 
             @error('description')
-                <p class="text-red-500" text-xs mt-1>{{ $message }}</p>
+                <p class="error-text" text-xs mt-1>{{ $message }}</p>
             @enderror
 
             <div class="listing-section-bottom">
