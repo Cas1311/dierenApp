@@ -1,70 +1,67 @@
 <x-layout>
-    <div class="mx-4">
-        <x-card class="p-10 max-w-lg mx-auto mt-24">
+    <div>
+        <x-card>
             <header class="text-center">
-                <h2 class="text-2xl font-bold uppercase mb-1">
+                <h2 class="header">
                     Register
                 </h2>
-                <p class="mb-4">Create an account to take care of a pet</p>
+                <p>Create an account to take care of a pet</p>
             </header>
 
             <form method="POST" action="/users">
                 @csrf
-                <div class="mb-6">
-                    <label for="name" class="inline-block text-lg mb-2">
+                <div class="listing-section">
+                    <label for="name" class="question-header">
                         Name
                     </label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="name"
-                        value="{{ old('name') }} " />
+                    <input class="question-box" type="text" name="name" value="{{ old('name') }} " />
 
                     @error('name')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        <p class="error-text">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="mb-6">
-                    <label for="email" class="inline-block text-lg mb-2">Email</label>
-                    <input type="email" class="border border-gray-200 rounded p-2 w-full" name="email"
-                        value="{{ old('email') }}" />
+                <div class="listing-section">
+                    <label for="email" class="question-header">Email</label>
+                    <input class="question-box" type="email" name="email" value="{{ old('email') }}" />
                     @error('email')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        <p class="error-text">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="mb-6">
-                    <label for="password" class="inline-block text-lg mb-2">
+                <div class="listing-section">
+                    <label for="password" class="question-header">
                         Password
                     </label>
-                    <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password"
-                        value="{{ old('password') }}" />
+                    <input class="question-box" type="password" name="password" value="{{ old('password') }}" />
                     @error('password')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        <p class="error-text">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="mb-6">
-                    <label for="password2" class="inline-block text-lg mb-2">
+                <div class="listing-section">
+                    <label for="password2" class="question-header">
                         Confirm Password
                     </label>
-                    <input type="password" class="border border-gray-200 rounded p-2 w-full"
-                        name="password_confirmation" />
+                    <input class="question-box" type="password" name="password_confirmation" />
                     @error('password_confirmation')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        <p class="error-text">{{ $message }}</p>
                     @enderror
                 </div>
 
-                <div class="mb-6">
+                <div class="listing-section-bottom">
                     <button type="submit" class="button">
                         Sign Up
                     </button>
+                    <div>
+                        <p>
+                            Already have an account?
+                            <a href="/login" class="text-link">Login</a>
+                        </p>
+                    </div>
                 </div>
 
-                <div class="mt-8">
-                    <p>
-                        Already have an account?
-                        <a href="/login" class="text-link">Login</a>
-                    </p>
-                </div>
+
             </form>
         </x-card>
     </div>

@@ -73,6 +73,10 @@
     background-color: var(--secondary-color);
 }
 
+.error-text {
+    color: red;
+}
+
 /* Layout */
 
 .layout {
@@ -195,6 +199,7 @@ footer {
 /* Create Form */
 .listing-section {
     margin: 1rem;
+
 }
 
 .listing-section-bottom {
