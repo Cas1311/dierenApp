@@ -12,7 +12,7 @@
                     <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}
                 </p>
                 <p class="listing-owner">
-                    <i class="fa-solid fa-user"></i> Owner: <a
+                    <i class="fa-solid fa-user"></i> Owner: <a class="text-link"
                         href="/users/{{ $listing->user->id }}">{{ $listing->user->name }}</a>
                 </p>
                 <x-listing-tags :tagsCsv="$listing->tags" />
