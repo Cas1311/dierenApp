@@ -1,7 +1,7 @@
 <x-layout>
-    <x-card class="p-10 max-w-lg mx-auto mt-24">
+    <x-card>
         <header class="text-center">
-            <h2 class="text-2xl font-bold uppercase mb-1">
+            <h2 class="header">
                 Edit your listing
             </h2>
             <p class="mb-4">Edit your listing for: {{ $listing->petName }}</p>
@@ -98,7 +98,7 @@
                 </label>
                 <input type="file" class="question-box" name="picture" />
             </div>
-            <img class="w-48 mr-6 mb-6"
+            <img class="listing-section"
                 src="{{ $listing->picture ? asset('storage/' . $listing->picture) : asset('/images/no-image.png') }}"
                 alt="" />
 
