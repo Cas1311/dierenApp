@@ -255,3 +255,15 @@ footer {
     border-radius: 8px;
     margin-top: 10px;
 }
+
+/* My Jobs */
+.table {
+    display: flex;
+    width: 80%;
+    margin: 20px 10vw;
+}
+
+.table-row {
+    padding: 200px;
+    border-bottom: 2px solid var(--secondary-color);
+}

@@ -1,14 +1,14 @@
 <x-layout>
-    <x-card class="p-10">
+    <x-card>
         <header>
-            <h1 class="text-3xl text-center font-bold my-6 uppercase">My Jobs</h1>
+            <h1 class="header text-center">My Jobs</h1>
         </header>
-        <table class="w-full table-auto rounded-sm">
+        <table class="table">
             <tbody>
                 @unless ($jobs->isEmpty())
                     @foreach ($jobs as $job)
-                        <tr class="border-gray-300">
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                        <tr class="table-row">
+                            <td class="">
                                 <p>Pet from: <a
                                         href="/users/{{ $job->listing->user->id }}">{{ $job->listing->user->name }}</a></p>
                                 <p>Pet's Name: {{ $job->listing->petName }}</p>
@@ -25,8 +25,8 @@
                         </tr>
                     @endforeach
                 @else
-                    <tr class="border-grey-300">
-                        <td class="px-4 py-7 border-t border-b-grey-300 text-lg">
+                    <tr class="">
+                        <td class="">
                             <p class="text-center">No Jobs Found</p>
                         </td>
                     </tr>
